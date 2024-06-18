@@ -1,0 +1,15 @@
+services:
+    database:
+        image: postgres:16
+        restart: always
+        environment:
+            POSTGRES_DB: caldar
+            POSTGRES_USER: caldaruser
+            POSTGRES_PASSWORD: caldarpass
+        ports:
+            - 5432:5432
+        volumes:
+            - database-data:/var/lib/postgresql/data
+
+volumes:
+    database-data:
