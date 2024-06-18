@@ -1,3 +1,4 @@
+import * as sessions from './schema/sessions';
 import * as users from './schema/users';
 import { POSTGRES_URL } from '$env/static/private';
 import { drizzle } from 'drizzle-orm/postgres-js';
@@ -7,6 +8,7 @@ export const client = postgres(POSTGRES_URL);
 
 export default drizzle(client, {
     schema: {
-        users
+        ...sessions,
+        ...users
     }
 });
